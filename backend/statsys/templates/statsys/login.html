@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %} Вход {% endblock %}
+
+
+{% block content %}
+  <div class="login">
+    <div class="login__title"><span>Вход</span></div>
+    <form action="{% url 'statsys:login' %}" method="POST">
+      {% csrf_token %}
+      {{login_error}}
+      <input type="text" placeholder="Логин" name="login">
+      <input type="password"  placeholder="Пароль" name="password">
+      <input type="submit" class="login__submit" value="Войти">
+    </form>
+  </div>
+{% endblock %}
+
