@@ -66,7 +66,7 @@
     <div class="container">
       <ul class="header__menu">
         <li><span><svg class="icon"  ><use  xlink:href="#ei-gear-icon"></use></svg></span></li>
-        <li><a href="{% url 'statsys:logout' %}">Выход</a> </li>
+        <li class="exit"><a href="{% url 'statsys:logout' %}">Выход</a> </li>
       </ul>
     </div>
   </div>
@@ -99,13 +99,17 @@
             </li>
           </ul>
         </div>
-        <div class="post__content">          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat possimus modi veniam ducimus nisi commodi eligendi sapiente nihil iusto ullam minus laborum voluptatem enim saepe, sit culpa, deleniti. Excepturi vitae saepe facere debitis, assumenda nesciunt veritatis! Natus facilis eius veniam vitae dignissimos, consectetur numquam eligendi minima sapiente blanditiis ducimus nam aspernatur animi quis quidem culpa. Modi autem nihil totam doloribus repellat numquam ad mollitia dolore libero sequi cupiditate voluptatum eum, harum vel, dolorem nesciunt. Doloremque nesciunt, exercitationem eaque! Optio in tenetur ex qui eaque modi aspernatur, quisquam reiciendis vero aut, iusto cumque facere, nisi quia fugit obcaecati sit. Quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nisi illo recusandae architecto voluptate error amet praesentium ex maiores soluta. Nihil fugiat iure cupiditate maiores, dolor a dignissimos quis ipsam!
+        <div class="post__content">
+          <div class="post__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat possimus modi veniam ducimus nisi commodi eligendi sapiente nihil iusto ullam minus laborum voluptatem enim saepe, sit culpa, deleniti. Excepturi vitae saepe facere debitis, assumenda nesciunt veritatis! Natus facilis eius veniam vitae dignissimos, consectetur numquam eligendi minima sapiente blanditiis ducimus nam aspernatur animi quis quidem culpa. Modi autem nihil totam doloribus repellat numquam ad mollitia dolore libero sequi cupiditate voluptatum eum, harum vel, dolorem nesciunt. Doloremque nesciunt, exercitationem eaque! Optio in tenetur ex qui eaque modi aspernatur, quisquam reiciendis vero aut, iusto cumque facere, nisi quia fugit obcaecati sit. Quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nisi illo recusandae architecto voluptate error amet praesentium ex maiores soluta. Nihil fugiat iure cupiditate maiores, dolor a dignissimos quis ipsam!
 
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat possimus modi veniam ducimus nisi commodi eligendi sapiente nihil iusto ullam minus laborum voluptatem enim saepe, sit culpa, deleniti. Excepturi vitae saepe facere debitis, assumenda nesciunt veritatis! Natus facilis eius veniam vitae dignissimos, consectetur numquam eligendi minima sapiente blanditiis ducimus nam aspernatur animi quis quidem culpa. Modi autem nihil totam doloribus repellat numquam ad mollitia dolore libero sequi cupiditate voluptatum eum, harum vel, dolorem nesciunt. Doloremque nesciunt, exercitationem eaque! Optio in tenetur ex qui eaque modi aspernatur, quisquam reiciendis vero aut, iusto cumque facere, nisi quia fugit obcaecati sit. Quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nisi illo recusandae architecto voluptate error amet praesentium ex maiores soluta. Nihil fugiat iure cupiditate maiores, dolor a dignissimos quis ipsam!
           <div class="toggle" onclick="toggleClass(event, 2)"><svg class="icon"  ><use  xlink:href="#ei-chevron-down-icon"></use></svg></div>
-        </div>
-        <div class="post__chart" >
-          <div id="chart"></div>
+
+          </div>
+          <div class="post__chart" >
+            <div id="chart"></div>
+          </div>
         </div>
       </div>
 
@@ -123,11 +127,11 @@
             </li>
             <li title="Комментарии">
               <span><svg class="icon"  ><use  xlink:href="#ei-comment-icon"></use></svg></span>
-              6214
+              64
             </li>
             <li title="репосты">
               <span><svg class="icon"  ><use  xlink:href="#ei-external-link-icon"></use></svg></span>
-              534
+              53433
             </li>
             <li title="Просмотры">
               <span><svg class="icon"  ><use  xlink:href="#ei-eye-icon"></use></svg></span>
@@ -136,13 +140,20 @@
           </ul>
         </div>
         <div class="post__content">
+          <div class="post__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat possimus modi veniam ducimus nisi commodi eligendi sapiente nihil iusto ullam minus laborum voluptatem enim saepe, sit culpa, deleniti. Excepturi vitae saepe facere debitis, assumenda nesciunt veritatis! Natus facilis eius veniam vitae dignissimos, consectetur numquam eligendi minima sapiente blanditiis ducimus nam aspernatur animi quis quidem culpa. Modi autem nihil totam doloribus repellat numquam ad mollitia dolore libero sequi cupiditate voluptatum eum, harum vel, dolorem nesciunt. Doloremque nesciunt, exercitationem eaque! Optio in tenetur ex qui eaque modi aspernatur, quisquam reiciendis vero aut, iusto cumque facere, nisi quia fugit obcaecati sit. Quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nisi illo recusandae architecto voluptate error amet praesentium ex maiores soluta. Nihil fugiat iure cupiditate maiores, dolor a dignissimos quis ipsam!
+
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat possimus modi veniam ducimus nisi commodi eligendi sapiente nihil iusto ullam minus laborum voluptatem enim saepe, sit culpa, deleniti. Excepturi vitae saepe facere debitis, assumenda nesciunt veritatis! Natus facilis eius veniam vitae dignissimos, consectetur numquam eligendi minima sapiente blanditiis ducimus nam aspernatur animi quis quidem culpa. Modi autem nihil totam doloribus repellat numquam ad mollitia dolore libero sequi cupiditate voluptatum eum, harum vel, dolorem nesciunt. Doloremque nesciunt, exercitationem eaque! Optio in tenetur ex qui eaque modi aspernatur, quisquam reiciendis vero aut, iusto cumque facere, nisi quia fugit obcaecati sit. Quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nisi illo recusandae architecto voluptate error amet praesentium ex maiores soluta. Nihil fugiat iure cupiditate maiores, dolor a dignissimos quis ipsam!
           <div class="toggle" onclick="toggleClass(event, 2)"><svg class="icon"  ><use  xlink:href="#ei-chevron-down-icon"></use></svg></div>
 
-        </div>
-        <div class="post__chart" id="chart">
+          </div>
+          <div class="post__chart" >
+            <div id="chart2"></div>
+          </div>
         </div>
       </div>
+
+
 
     </div>
   </div>
@@ -154,7 +165,7 @@
 {% endblock %}
 {% block scripts %}
 
-  <script src="{% static  'js/d3.min.js' %}" charset="utf-8"></script>
+  <script src="{% static 'js/d3.v3.min.js' %}" charset="utf-8"></script>
   <script src="{% static 'js/c3.min.js' %}"></script>
   <script src="{% static 'js/vue.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>

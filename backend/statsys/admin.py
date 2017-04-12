@@ -6,20 +6,27 @@ from .models import PostStatistics, Post
 class PostStatisticsAdmin(admin.TabularInline):
     model = PostStatistics
     extra = 1
+    readonly_fields = ('post', 'date',  'likes', 'comments', 'reposts', 'views' )
+
+    def has_add_permission(self, request):
+        return False
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'date', 'post_type', 'is_pinned','marked_as_ads')
+    list_display = ('id', 'owner_id', 'date', 'post_type','marked_as_ads')
+    readonly_fields = ('id', 'owner_id','date', 'post_type','marked_as_ads')
     list_filter = [
         'post_type',
-        'is_pinned',
         'marked_as_ads',
     ]
 
+
     fields = (
-        ('id','date' ),
+        'id',
+        'owner_id',
+        'date',
         'post_type',
-        ('is_pinned','marked_as_ads' ),
+        'marked_as_ads'
     )
     inlines = [
         PostStatisticsAdmin,
