@@ -21,8 +21,8 @@ from statsys import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^statistics/', include('statsys.urls')),
-    url(r'^$', views.statistics, name='statistics'),
+    url(r'^board/', include('statsys.urls')),
+    url(r'^$', views.board, name='board'),
 ]
 
 # from django.conf.urls.static import static

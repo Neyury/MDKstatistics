@@ -20,7 +20,9 @@ app_name='statsys'
 urlpatterns = [
     url(r'^login/$', views.login, name='login'),
     url(r'^logout/$', views.logout, name='logout'),
-    url(r'^$', views.statistics),
+    url(r'^posts/$', views.posts, name='posts'),
+    url(r'^statistics/$', views.statistics, name='statistics'),
+    url(r'^$', views.board),
 ]
 
 
