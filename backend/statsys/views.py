@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django.views.decorators.http import require_http_methods, require_POST, require_GET
 from .models import Post, PostStatistics
 
-amount_given_elements = 10
+amount_given_elements = 5
 
 def login(request):
     context = dict()
@@ -37,9 +37,9 @@ def board(request):
 
 
 # возвращает список постов
-def posts(request,):
+def posts(request):
     posts = list(Post.objects.all().values())
-    last_post_id = request.GET.get('last_post_id')
+    last_post_id = request.GET.get('post')
 
     if  last_post_id:
         for i, post in enumerate(posts):
@@ -51,23 +51,22 @@ def posts(request,):
 
 # возвращает статистику по указанным постам
 def statistics(request):
-    list_post_ids = [12797091, 12800935] #request.GET.getlist('post')
-    # statistics  = list(PostStatistics.objects.filter(post__in=list_post_ids).values_list())
-    # response = list(zip(*statistics))
+    list_post_ids =  request.GET.getlist('post')
     response = list()
 
     for post_id in list_post_ids:
         statistics = list(PostStatistics.objects.filter(post=post_id).values_list())
-        values = list(zip(*statistics))
+        values = list(zip( *list(reversed(statistics))))
         post_data = {
             'id': post_id,
-            'data': {
-                'date': values[2],
-                'likes': values[3],
-                'comments': values[4],
-                'reposts': values[5],
-                'views':  values[6],
-            }
+            'ids': list_post_ids,
+            'data': [
+                [ 'дата', *values[2] ],
+                [ 'лайки', *values[3] ],
+                [ 'комментарии', *values[4] ],
+                [ 'репосты', *values[5] ],
+                [ 'просмотры', *values[6] ]
+            ]
         }
 
         response.append( post_data )

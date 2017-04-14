@@ -2,6 +2,7 @@
 frontend/*
 node_modules/*
 .idea/*
+__pycache__
 __pycache__/*
 gulpfile.js
 package.json

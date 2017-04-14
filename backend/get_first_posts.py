@@ -32,6 +32,6 @@ for post_json in list_posts_json:
                                           likes=post_json['likes']['count'], reposts=post_json['reposts']['count'],
                                           views=post_json['views']['count']))
 
-print(len(list_statistics))
+print(len(list_statistics) or 0)
 PostStatistics.objects.bulk_create(list_statistics)
 
