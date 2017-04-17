@@ -87,7 +87,7 @@ if PRODACTION:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'eshop_db',
+            'NAME': 'mdk_db',
             'USER': 'admin',
             'PASSWORD': 't591172856',
             'HOST': '',  # Set to empty string for localhost.
@@ -133,7 +133,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# USE_TZ = True
 
 FIRST_DAY_OF_WEEK = 1
 
@@ -147,14 +147,14 @@ STATICFILES_DIRS = [
 ]
 
 if PRODACTION:
-    MEDIA_ROOT = '/home/admin/projects/eshop/files/media/'
+    MEDIA_ROOT = '/home/admin/mdk/backend/files/media/'
     MEDIA_URL = '/media/'
 
-    STATIC_ROOT = '/home/admin/projects/eshop/files/static/'
+    STATIC_ROOT = '/home/admin/mdk/backend/files/static/'
     STATIC_URL = '/static/'
 else:
-    MEDIA_ROOT = 'C:/Users/Юрий/Desktop/SGW/backend/files/media/'
+    MEDIA_ROOT = 'C:/Users/Юрий/Desktop/MDKstatistics/backend/files/media/'
     MEDIA_URL = '/media/'
 
-    STATIC_ROOT = 'C:/Users/Юрий/Desktop/SGW/backend/files/static/'
+    STATIC_ROOT = 'C:/Users/Юрий/Desktop/MDKstatistics/backend/files/static/'
     STATIC_URL = '/static/'

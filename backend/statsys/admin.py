@@ -1,12 +1,11 @@
 from django.contrib import admin
 from .models import PostStatistics, Post
-# Register your models here.
 
 
 class PostStatisticsAdmin(admin.TabularInline):
     model = PostStatistics
     extra = 1
-    readonly_fields = ('post', 'date',  'likes', 'comments', 'reposts', 'views' )
+    readonly_fields = ('post', 'date_unixtime', 'date_datetime', 'likes', 'comments', 'reposts', 'views' )
 
     def has_add_permission(self, request):
         return False
@@ -19,8 +18,6 @@ class PostAdmin(admin.ModelAdmin):
         'post_type',
         'marked_as_ads',
     ]
-
-
     fields = (
         'id',
         'owner_id',

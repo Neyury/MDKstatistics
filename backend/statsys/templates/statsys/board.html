@@ -1,14 +1,8 @@
-{% extends "base.html" %}
-
-{% load staticfiles %}
-
-{% block title %} Статистика постов MDK {% endblock %}
-
-{% block head %}
-<link rel="stylesheet" href="{% static 'css/c3.css' %}">
-{% endblock %}
-{% block content %}
-  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="ei-sprite" style="display:none">
+{% extends "base.html" %} {% load staticfiles %} {% block title %} Статистика постов MDK {% endblock %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/c3.css' %}"> {% endblock %} {% block content %}
+<div id="page">
+    <div class="modal loader main fixed" v-if="!posts"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="ei-sprite" style="display:none">
     <symbol id="ei-chart-icon" viewBox="0 0 50 50">
         <path d="M18 36h-2V26h-4v10h-2V24h8z"></path>
         <path d="M28 36h-2V20h-4v16h-2V18h8z"></path>
@@ -62,32 +56,45 @@
     </symbol>
   </svg>
 
-  <div class="header">
-    <div class="container">
-      <ul class="header__menu">
-        <li class="header__logo">BOARD</li>
-        <li class="header__exit"><a href="{% url 'statsys:logout' %}">Выход</a> </li>
-      </ul>
+    <div class="header">
+        <div class="container">
+            <ul class="header__menu">
+                <li class="header__logo">BOARD</li>
+                <li class="header__item">
+                    <span v-on:click="open_setting_menu = !open_setting_menu" class="icon"><svg ><use  xlink:href="#ei-gear-icon"></use></svg></span>
+                </li>
+                <li class="header__exit"><a href="{% url 'statsys:logout' %}">Выход</a> </li>
+            </ul>
+            <div v-if="open_setting_menu" class="submenu">
+                <div class="submenu__title">Промежуток для показа</div>
+                <input type="radio" id="1" value="last" v-model="range">
+                <label for="1">Последние записи</label>
+                <input type="radio" id="2" value="day" v-model="range">
+                <label for="2">Текущий день</label>
+                <input type="radio" id="3" value="week" v-model="range">
+                <label for="3">Неделя</label>
+                <input type="radio" id="4" value="month" v-model="range">
+                <label for="4">Месяц</label>
+                <input type="radio" id="5" value="all" v-model="range">
+                <label for="5">Весь период</label>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="content " id="content">
-    <div class="container ">
+    <div class="content " id="content">
+        <div class="container ">
 
-        <post-item v-for="item in list_posts" :post="item" :statistics="statistics" :key="item.id"></post-item >
+            <post-item v-for="post in posts" :post="post" :range="range" :key="post.id"></post-item>
 
-        <div class=" next-posts-btn" v-on:click="load_posts">Следующие посты</div>
+            <div class=" next-posts-btn" v-on:click="load_posts">
+                <span v-if="can_load_posts">Следующие посты</span>
+                <span v-else="can_load_posts">загрузка</span>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="footer">
-    <div class="container">
-
-    </div>
-  </div>
-{% endblock %}
-{% block scripts %}
-
-  <script src="{% static 'js/d3.v3.min.js' %}" charset="utf-8"></script>
-  <script src="{% static 'js/c3.min.js' %}"></script>
-  <script src="{% static 'js/vue.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
+</div>
+{% endblock %} {% block scripts %}
+<script src="{% static 'js/d3.v3.min.js' %}" charset="utf-8"></script>
+<script src="{% static 'js/c3.min.js' %}"></script>
+<script src="{% static 'js/vue.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
