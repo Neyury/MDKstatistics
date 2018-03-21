@@ -1,6 +1,7 @@
 # Add any directories, files, or patterns you don't want to be tracked by version control
 frontend/*
 node_modules/*
+.idea
 .idea/*
 __pycache__
 __pycache__/*
