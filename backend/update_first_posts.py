@@ -14,8 +14,9 @@ import requests
 def start():
     wall_id = -57846937
     count_post = 100
+    access_token = '8f2f75ff8f2f75ff8f2f75fffa8f745a7b88f2f8f2f75ffd7c14cdeb89d077a96716217'
     API_domain = 'https://api.vk.com/method/'
-    API_params = 'wall.get?owner_id={0}&count={1}&v=5.63'.format(wall_id, count_post)
+    API_params = 'wall.get?owner_id={0}&count={1}&v=5.63&access_token={2}'.format(wall_id, count_post, access_token)
 
     response = requests.get('{0}{1}'.format(API_domain, API_params))
 

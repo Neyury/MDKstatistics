@@ -33,8 +33,8 @@ else:
     DEBUG = True
 
 ALLOWED_HOSTS = [
-        'localhost',
-        'tarunin.one'
+    'localhost',
+    '127.0.0.1'
 ]
 
 
@@ -147,14 +147,15 @@ STATICFILES_DIRS = [
 ]
 
 if PRODACTION:
-    MEDIA_ROOT = '/home/admin/mdk/backend/files/media/'
+
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')
     MEDIA_URL = '/media/'
 
-    STATIC_ROOT = '/home/admin/mdk/backend/files/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'files', 'static')
     STATIC_URL = '/static/'
 else:
-    MEDIA_ROOT = 'C:/Users/Юрий/Desktop/MDKstatistics/backend/files/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')
     MEDIA_URL = '/media/'
 
-    STATIC_ROOT = 'C:/Users/Юрий/Desktop/MDKstatistics/backend/files/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'files', 'static')
     STATIC_URL = '/static/'
